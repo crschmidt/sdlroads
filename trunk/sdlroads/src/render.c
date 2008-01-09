@@ -21,12 +21,11 @@
  *
  *****************************************************************************/
 
-#include "core.h"
-#include "camera.h"
-#include "ship.h"
-#include "images.h"
-#include "text.h"
-#include "args.h"
+#include "sdlroads.h"
+
+extern vec3_t camera_look, camera_pos, camera_up;
+extern vec_t camera_dspeed; /* speed in the look direction */
+extern vec_t camera_cspeed; /* speed in the across direction (WRT look) */
 
 GLfloat mat_ambient[] = {0.4, 0.4, 0.4, 1.0};
 GLfloat mat_diffuse[] = {0.8, 0.8, 0.8, 1.0};

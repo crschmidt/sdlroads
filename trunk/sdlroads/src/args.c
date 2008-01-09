@@ -22,16 +22,9 @@
  *
  *****************************************************************************/
 
-#include <string.h>
-#include "consts.h"
-#include "util.h"
-#include "args.h"
+#include "sdlroads.h"
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#else
-#error You really need a config.h
-#endif
+#include <string.h>
 
 
 static void print_help(char **argv);
@@ -41,7 +34,6 @@ static void print_version(char **argv);
 int parse_args(int argc, char** argv, game_options_t *config) {
 
     int i, returnval;
-    int tempval = 0;
 
     returnval = 1;
 
@@ -51,44 +43,20 @@ int parse_args(int argc, char** argv, game_options_t *config) {
                 config->fullscreen = 1;
                 break;
             case 'h':
-                if (argc > i + 1) {
-                    tempval = atoi(argv[i+1]);
-                    if (tempval) {
-                        config->height = tempval;
-                        i++;
-                        break;
-                    }
-                }
-                print_help(argv);
-                exit(0);
+                config->height = atoi(argv[i+1]);
+                i++;
+                break;
             case 'w':
-                if (argc > i + 1) {
-                    tempval = atoi(argv[i+1]);
-                    if (tempval) {
-                        config->width = tempval;
-                        i++;
-                        break;
-                    }
-                }
-                print_help(argv);
-                exit(0);
+                config->width = atoi(argv[i+1]);
+                i++;
+                break;
             case 'm':
-                if (argc > i + 1) {
-                    strcpy(config->musicfilename, argv[i+1]);
-                    i++;
-                } else {    
-                    print_help(argv);
-                    exit(0);
-                }    
+                strcpy(config->musicfilename, argv[i+1]);
+                i++;
                 break;
             case 't':
-                if (argc > i + 1) {
-                    strcpy(config->track_path, argv[i+1]);
-                    i++;
-                } else {    
-                    print_help(argv);
-                    exit(0);
-                }    
+                strcpy(config->track_path, argv[i+1]);
+                i++;
                 break;
             case 'v':
             case 'V':
@@ -121,9 +89,8 @@ void print_help(char **argv)
 
 void print_version(char **argv) 
 {
-    char version_string[50];
-    sprintf(version_string, "This is %s, version ", PACKAGE);
-    strcat(version_string, VERSION);
+    char version_string[50] = "This is sdlroads, version ";
+    strcat(version_string, SDLROADS_VERSION);
     strcat(version_string, "\n");
     printf(version_string);
 }

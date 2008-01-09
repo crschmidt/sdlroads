@@ -21,8 +21,7 @@
  *
  *****************************************************************************/
 
-#include "core.h"
-#include "util.h"
+#include "sdlroads.h"
 
 void input_keydown( SDL_keysym* key )
 {

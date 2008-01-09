@@ -21,13 +21,15 @@
  *
  *****************************************************************************/
 
-#include "defs.h"
-#include "camera.h"
-#include "consts.h"
-#include "ship.h"
+#include "sdlroads.h"
 
 vec3_t right = {1,0.0};
 vec3_t up = {0,1,0};
+
+vec3_t camera_look, camera_pos, camera_up;
+vec_t camera_dspeed; /* speed in the look direction */
+vec_t camera_cspeed; /* speed in the across direction (WRT look) */
+
 
 static void normalize_vectors();
 

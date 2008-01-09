@@ -22,10 +22,7 @@
  *
  *****************************************************************************/
 
-#include "core.h"
-#include "track.h"
-#include "args.h"
-#include "camera.h"
+#include "sdlroads.h"
 
 
 void scene_update()

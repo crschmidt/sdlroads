@@ -21,13 +21,8 @@
  *
  *****************************************************************************/
 
-#include "core.h"
-#include "args.h"
-#include "sound.h"
-#include "track.h"
-#include "text.h"
+#include "sdlroads.h"
 
-#include <unistd.h>
 
 int window_init(int re_initialize)
 {
@@ -35,7 +30,7 @@ int window_init(int re_initialize)
     int channel_size = 8;
     Uint32 video_flags;
 
-    strcat(caption, VERSION);
+    strcat(caption, SDLROADS_VERSION);
 
     if(re_initialize)
     {
