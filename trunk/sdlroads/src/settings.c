@@ -67,7 +67,6 @@ int settings_file_read()
 
 #ifdef WIN32
 
-    /* no checks for windows users! SORRY! */
     f = fopen(filename, "r");
 	if (!f)
 		return 1;
