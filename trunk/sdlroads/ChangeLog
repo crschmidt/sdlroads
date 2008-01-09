@@ -1,0 +1,609 @@
+2005-01-23  Peter Newman  <panewman@uiuc.edu>
+
+	* src/menu.c, src/settings.c, src/sound.c:
+	so it turns out music was broken...  fade-ins and fade-outs added too
+
+	* src/consts.h, src/defs.h, src/menu.c, src/settings.c, src/sound.c, src/sound.h:
+	added sound and music toggles to the menu
+
+2005-01-14  Peter Newman  <panewman@uiuc.edu>
+
+	* src/main.c: frame limiter improved even more
+
+	* src/input.c, src/game.c: track works, but the input is sticky
+
+	* src/core.h, src/game.c, src/game.h, src/input.c, src/main.c, src/menu.c, src/menu.h, src/consts.h:
+	implemented key-throttling for menu.  doesn't seem to work yet
+
+	* src/input.c, src/input.h, src/main.c, src/menu.c, src/menu.h, src/game.c:
+	the menu "works" now (key input is kind of fast now)
+
+	* src/main.c, src/menu.c, src/model.c, src/model.h, src/settings.c, src/ship.c, src/sound.c, src/text.c, src/track.c, src/util.c, src/util.h, src/window.c, src/window.h, src/core.h, src/defs.h, src/game.c, src/input.c:
+	at least it compiles now
+
+	* src/menu.c, src/track.c: a few bits of progress
+
+	* src/Makefile.am, src/camera.c, src/consts.h, src/core.h, src/defs.h, src/game.c, src/game.h, src/images.c, src/images.h, src/input.c, src/input.h, src/main.c, src/model.c, src/render.c, src/render.h, src/scene.c, src/scene.h, src/settings.c, src/window.c:
+	major restructuring underway.  if you're interested in compiling something
+	working, checkout sources from the alpha-src branch
+
+2005-01-12  Peter Newman  <panewman@uiuc.edu>
+
+	* src/consts-falcon.h, src/menu.c, src/scene.c, src/scene.h, src/ship.c, src/window.c:
+	no more polling for a change in level
+
+	* src/scene.c, src/window.c, src/main.c:
+	fixed segfault when switching video modes before a track has been loaded
+
+	* src/defs.h, src/main.c, src/util.c:
+	superfluous support for colorful errors
+
+	* src/consts.h, src/defs.h, src/main.c, src/render.c, src/ship.c, src/sound.c, src/sound.h, src/text.c, src/util.c, src/window.c, src/window.h:
+	inconsequential changes made during downtime
+
+2005-01-03  Peter Newman  <panewman@uiuc.edu>
+
+	* src/main.c, src/menu.c:
+	wrote a check for ensuring that a level is loaded before the user
+	ESCapes out of the menu
+
+	* src/defs.h, src/settings.c, src/track.c, src/args.c:
+	now accepts alternate track paths, though only from paths relative to
+	the datadir (and ending in a /)
+
+2005-01-02  Peter Newman  <panewman@uiuc.edu>
+
+	* TODO: less TODO...
+
+	* src/track.c:
+	added a check for requests of color indices already in use by the
+	builtin colors
+
+	* tracks/easy_track:
+	modified easy_track to demonstrate new trackfile features
+
+	* src/defs.h, src/track.c: added support for track-specific colors
+
+2004-12-31  Peter Newman  <panewman@uiuc.edu>
+
+	* TODO: ok, the colors can wait
+
+	* TODO: marked a few items as being needed for the beta release
+
+	* src/menu.c:
+	menu wraps now; 2-column overflow menus touched up a bit
+
+	* fonts/Makefile.am, fonts/drg.ttf:
+	an interesting font i've been using; since I commited a text.c that uses
+	it, I might as well put it in version control
+
+	* src/scene.c, src/scene.h, src/settings.c, src/settings.h, src/ship.c, src/ship.h, src/sound.c, src/sound.h, src/text.c, src/text.h, src/track.c, src/track.h, src/util.c, src/util.h, src/window.c, src/window.h, src/args.c, src/args.h, src/camera.c, src/camera.h, src/consts-falcon.h, src/consts.h, src/core.h, src/defs.h, src/images.c, src/images.h, src/input.c, src/input.h, src/main.c, src/mathlib.c, src/mathlib.h, src/menu.c, src/menu.h, src/model.c, src/model.h, src/render.c, src/render.h:
+	tacked id tags onto the end of source files
+
+2004-12-30  Peter Newman  <panewman@uiuc.edu>
+
+	* src/consts.h, src/defs.h, src/menu.c, src/settings.c, src/sound.c, src/text.c, src/text.h, src/util.c, src/util.h, TODO:
+	more capable options menu
+
+2004-12-29  Peter Newman  <panewman@uiuc.edu>
+
+	* src/menu.c, src/menu.h, src/settings.c, src/window.c, TODO:
+	wrote a couple of helper functions for adding menus and menuitems
+
+2004-12-27  Peter Newman  <panewman@uiuc.edu>
+
+	* ChangeLog, NEWS, README, TODO: administrivial stuff
+
+	* src/settings.c, src/window.c:
+	cutting some fat -- unnecessary logging in settings, code reduction on
+	window
+
+2004-12-25  Peter Newman  <panewman@uiuc.edu>
+
+	* sound/darkness.ogg:
+	this file is too huge to download on every checkout
+
+	* tracks/skyroads/road1-1, tracks/skyroads/road1-2, tracks/skyroads/road1-3, tracks/skyroads/road2-1, tracks/skyroads/road2-2, tracks/skyroads/road2-3, tracks/skyroads/road3-1, tracks/skyroads/road3-2, tracks/skyroads/road3-3, tracks/skyroads/road4-1, tracks/skyroads/road4-2, tracks/skyroads/road4-3, tracks/skyroads/road5-1, tracks/skyroads/road5-2, tracks/skyroads/road5-3, tracks/skyroads/road6-1, tracks/skyroads/road6-2, tracks/skyroads/road6-3, tracks/skyroads/road7-1, tracks/skyroads/road7-2, tracks/skyroads/road7-3, tracks/skyroads/road8-1, tracks/skyroads/road8-2, tracks/skyroads/road8-3, tracks/skyroads/road9-1, tracks/skyroads/road9-2, tracks/skyroads/road9-3, tracks/skyroads/roada-1, tracks/skyroads/roada-2, tracks/skyroads/roada-3, tracks/bigtrack, tracks/easy_track, tracks/testtrack, tracks/track2, tracks/track3, tracks/track4, tracks/track5, tracks/track6, tracks/track7:
+	modified tracks to use smaller images
+
+	* images/IC1024.jpg, images/IC512.jpg, images/Makefile.am, images/NG512.jpg, images/NGC1024.jpg, images/PL1024.jpg, images/PL512.jpg, images/FG1024.jpg, images/FG512.jpg, images/HE1024.jpg, images/HE512.jpg, images/HU1024.jpg, images/HU512.jpg:
+	converted the 1024x1024 images to 512x512
+
+2004-11-16  Christopher Schmidt  <crschmidt@crschmidt.net>
+
+	* docs/ship_t:
+	Start of work on some documentation work. I'd like to outline everything
+	in this folder so that hackers don't have to dig through any kind of
+	code in order to figure out what they need to know. Could also document
+	track formats in here, etc., once we get that stuff together.
+
+2004-11-10  Christopher Schmidt  <crschmidt@crschmidt.net>
+
+	* tracks/skyroads/road4-2:
+	Missed this one. I'm not sure this level is faithful to the original:
+	seems to be missing some pieces that I thought were there. Then again,
+	maybe my memory just sucks.
+
+	* tracks/skyroads/road7-1, tracks/skyroads/road7-3, tracks/skyroads/road8-3, tracks/skyroads/roada-1, tracks/skyroads/roada-3:
+	Gravity on these levels was too high for SDLRoads play. Updated to be more
+	in line with the original game and to allow these levels to be beatable.
+	The only level I haven't beat now is roada-3: everything else is tested and
+	can be beaten (although many of them are pretty damn hard.)
+
+	* tracks/skyroads/Makefile.am, tracks/skyroads/road1-1, tracks/skyroads/road1-2, tracks/skyroads/road1-3, tracks/skyroads/road2-1, tracks/skyroads/road2-2, tracks/skyroads/road2-3, tracks/skyroads/road3-1, tracks/skyroads/road3-2, tracks/skyroads/road3-3, tracks/skyroads/road4-1, tracks/skyroads/road4-2, tracks/skyroads/road4-3, tracks/skyroads/road5-1, tracks/skyroads/road5-2, tracks/skyroads/road5-3, tracks/skyroads/road6-1, tracks/skyroads/road6-2, tracks/skyroads/road6-3, tracks/skyroads/road7-1, tracks/skyroads/road7-2, tracks/skyroads/road7-3, tracks/skyroads/road8-1, tracks/skyroads/road8-2, tracks/skyroads/road8-3, tracks/skyroads/road9-1, tracks/skyroads/road9-2, tracks/skyroads/road9-3, tracks/skyroads/roada-1, tracks/skyroads/roada-2, tracks/skyroads/roada-3, tracks/skyroads/tracks.list, configure.ac, tracks/Makefile.am:
+	Commiting a ton of track files. These are all 30 levels from the original
+	Skyroads and a tracks.list to go with them. We will eventually make it easy
+	to select these tracks as a levelset, but for right now, you just have to
+	figure out how to load them on their own. Thanks to soup for the help getting
+	these out of the original game! More info on that in the weblog. Thanks soup!
+
+2004-10-22  Christopher Schmidt  <crschmidt@crschmidt.net>
+
+	* INSTALL-OSX:
+	OSX Specific Install instructions, including how to modify configure.ac and
+	what to put into $LIBS in order to get things to compile using Fink packages
+
+2004-10-21  Christopher Schmidt  <crschmidt@crschmidt.net>
+
+	* src/menu.c:
+	Make it so that menu items wrap. Mostly for the track code, and not
+	really window-size dependant at the moment, but fixed the "Track listing
+	goes off the screen" bug.
+
+2004-10-21  Paul Guder  <enyalios@enyalios.net>
+
+	* src/defs.h, src/main.c, src/render.c, src/ship.c, src/window.c:
+	Cleaned up the win code a bit and added some nice text when you complete a level.
+
+2004-10-21  Peter Newman  <panewman@uiuc.edu>
+
+	* src/track.c:
+	num_positions is now explicitly zeroed before being recounted to prevent tracks
+	from getting longer and longer...
+
+2004-10-21  Christopher Schmidt  <crschmidt@crschmidt.net>
+
+	* configure.ac:
+	Libpng isn't needed to play the game. We may want to generate a warning at
+	some point, but we don't need a complete failure if it doesn't exist.
+
+	* ChangeLog: Committing up to date ChangeLog
+
+2004-10-21  Paul Guder  <enyalios@enyalios.net>
+
+	* models/rapier.mtl, models/rapier.obj, models/rapier.wings:
+	Edited ship model so it would make cooler explosions.
+
+	* src/window.c: Added delay of 20 ms after rendering each frame.
+
+	* src/input.c, src/render.c, src/window.c: Pause uses less cpu.
+
+2004-10-21  Peter Newman  <panewman@uiuc.edu>
+
+	* TODO: more TODO
+
+	* src/main.c, src/menu.c, src/menu.h, src/render.c:
+	There's now a play menu.  It goes off the screen though...
+
+2004-10-21  Paul Guder  <enyalios@enyalios.net>
+
+	* src/render.c: Made the pause screen prettier.
+
+2004-10-21  Peter Newman  <panewman@uiuc.edu>
+
+	* src/args.c, src/consts.h, src/defs.h, src/main.c, src/menu.c, src/scene.c, src/settings.c, src/ship.c, src/track.c, src/track.h, src/window.c, tracks/Makefile.am, tracks/tracks.list, NEWS, TODO:
+	Play proceeds through levels listed in tracks/tracks.list.  Also, ship no longer
+	resets when fullscreen is toggled.
+
+	* src/defs.h, src/input.c, src/main.c, src/menu.c, src/render.c, src/scene.c, src/settings.c, src/window.c:
+	Configuration file written on quit(0).  As a sidenote, quit now takes a
+	condition code.
+
+	* src/track.c: Fixed filename bug in track_load
+
+2004-10-20  Peter Newman  <panewman@uiuc.edu>
+
+	* NEWS, TODO: NEWS and TODO updated
+
+	* src/settings.c: Check for win32 added before file check.
+
+	* src/defs.h, src/images.c, src/images.h, src/main.c, src/render.c, src/render.h, src/ship.c, src/ship.h, src/track.c, src/util.c, src/window.c, src/window.h:
+	All visual elements re-loadable now.
+
+2004-10-20  Paul Guder  <enyalios@enyalios.net>
+
+	* src/ship.c: No more bounding box.
+
+	* src/consts.h: The ship is now much closer to being on the floor.
+
+2004-10-20  Peter Newman  <panewman@uiuc.edu>
+
+	* src/main.c, src/scene.c, src/util.c, src/window.c, NEWS, TODO, src/defs.h:
+	render_init called when fullscreen is toggled.  didn't help all that much for
+	win32
+
+2004-10-20  Paul Guder  <enyalios@enyalios.net>
+
+	* src/consts.h, src/settings.c:
+	Changed the default tracking and music playing-ness.
+
+2004-10-20  Peter Newman  <panewman@uiuc.edu>
+
+	* src/args.c, src/args.h, src/camera.c, src/camera.h, src/core.h, src/defs.h, src/images.c, src/images.h, src/input.c, src/main.c, src/menu.c, src/model.c, src/model.h, src/render.c, src/render.h, src/scene.c, src/scene.h, src/settings.c, src/settings.h, src/ship.c, src/ship.h, src/sound.c, src/sound.h, src/text.c, src/text.h, src/track.c, src/track.h, src/util.c, src/window.c:
+	Major reorganization of globals in the game.  There should be no more externs in
+	c files.  Also fixed that annoying ``I can't see the track or my ship!'' bug.
+
+	* src/menu.c: the volatiles in the free function weren't necessary
+
+	* src/menu.c, src/menu.h: Fixed bugs in menu cleanup function.
+
+	* src/consts.h, src/defs.h, src/input.c, src/menu.c, src/menu.h, src/util.c, src/util.h, src/window.c:
+	Fullscreen toggling with 'f' added.  Also, there is a working option in the
+	options menu for setting fullscreen.  For now, the setting will be the first
+	character of the word fullscreen.
+
+2004-10-19  Peter Newman  <panewman@uiuc.edu>
+
+	* src/menu.c, src/menu.h:
+	Menu system reorganized.  Now with void pointers(tm)!
+
+	* src/ship.c:
+	Outline is much closer to the ground now.  Witness the horror.
+
+	* src/consts.h: Added some constants for use in the menu
+
+2004-10-18  Peter Newman  <panewman@uiuc.edu>
+
+	* src/settings.c, src/sound.c, src/track.c, ChangeLog, TODO, autogen.sh:
+	Updated TODO and a few other changes made to source files a few days ago but
+	couldn't commit.
+
+2004-10-18  Christopher Schmidt  <crschmidt@crschmidt.net>
+
+	* TODO: testing
+
+	* README: Please please work.
+
+2004-10-16  Peter Newman  <panewman@uiuc.edu>
+
+	* src/main.c, src/mathlib.h, src/ship.c, src/sound.c, src/sound.h:
+	Sound is now an object(tm)!
+
+2004-10-16  Christopher Schmidt  <crschmidt@crschmidt.net>
+
+	* ChangeLog: This time, with ./mkchangelog!
+
+	* ChangeLog: Adding a new changelog file
+
+2004-10-13  Christopher Schmidt  <crschmidt@crschmidt.net>
+
+	* src/window.c:
+	When we're in a pause state, we're still constantly rendering. Although
+	this is nice for our FPS rate, it's a big cyclesuck that we really don't
+	need. Give up some timeslices to the processor, dropping CPU load on my
+	machine from 100% (with no SDL_Delay) to 60% (with 10 timeslice delay)
+	to 8% (with 100 timeslice delay). There is a barely noticible lag between
+	pressing p and the actual unpause, but it's barely noticible, and not
+	a hindrance on gameplay.
+
+2004-10-10  Christopher Schmidt  <crschmidt@crschmidt.net>
+
+	* src/menu.c:
+	Although Linux doesn't seem to complain about it, defining a variable as
+	'main' on OS X causes it to fail in compile:
+
+	menu.c:30: error: `SDL_main' redeclared as different kind of symbol
+
+	This fixes the problem, by changing "main" to "mainm", thus avoiding the
+	conflict.
+
+2004-10-07  Christopher Schmidt  <crschmidt@crschmidt.net>
+
+	* src/menu.c:
+	Changing menu.c to be a little bit easier to modify without causing a
+	segfault. use an already existing variable to do some more work for us
+
+2004-09-05  Peter Newman  <panewman@uiuc.edu>
+
+	* src/consts.h, src/defs.h, src/main.c, src/menu.c, src/menu.h, src/settings.c, src/settings.h:
+	Poking around with the menu implementation
+
+2004-07-16  Peter Newman  <panewman@uiuc.edu>
+
+	* src/main.c, src/menu.c, src/menu.h, src/render.c, src/text.c, src/window.c:
+	Functional, though not yet necessary menu added
+
+2004-07-10  Peter Newman  <panewman@uiuc.edu>
+
+	* TODO, src/defs.h, src/input.c, src/main.c, src/menu.c, src/menu.h, src/window.c:
+	wrote out some menu structure.  non-working at this point
+
+	* src/menu.c, src/menu.h, src/Makefile.am: Began work on the menu
+
+2004-07-07  Peter Newman  <panewman@uiuc.edu>
+
+	* src/util.c, src/util.h: added util.[ch]
+
+2004-07-06  Peter Newman  <panewman@uiuc.edu>
+
+	* images/PL1024.png, images/NGC1024.png, images/IC1024.png, images/HU1024.png, images/HE1024.png, images/FG1024.png, images/AM512.png, images/AN512.png, images/DR512.png:
+	These PNGs are too big to keep around
+
+	* ChangeLog: changelog update
+
+	* src/Makefile.am, src/args.c, src/args.h, src/camera.c, src/camera.h, src/consts.h, src/core.h, src/defs.h, src/input.c, src/main.c, src/mathlib.c, src/model.c, src/render.c, src/render.h, src/scene.c, src/scene.h, src/settings.c, src/settings.h, src/ship.c, src/sound.c, src/sound.h, src/text.c, src/track.c, src/track.h, src/window.c, src/window.h, tracks/bigtrack, TODO, autogen.sh:
+	Needlessly large commit containing a weekend of changes during which I couldn't
+	access CVS
+
+2004-07-02  Peter Newman  <panewman@uiuc.edu>
+
+	* README, autogen.sh:
+	autogen simplified, helpful hint added to readme
+
+2004-07-01  Peter Newman  <panewman@uiuc.edu>
+
+	* images/Makefile.am, models/Makefile.am, sound/Makefile.am, src/consts.h, src/main.c, src/model.c, src/model.h, src/window.c, tracks/Makefile.am, README, TODO, configure.ac, fonts/Makefile.am:
+	make install now supported.
+
+2004-06-29  Peter Newman  <panewman@uiuc.edu>
+
+	* README, NEWS, TODO, configure.ac, src/main.c, src/window.c, ChangeLog:
+	version 0.09 commit
+
+	* src/model.c, src/model.h, src/ship.c, src/ship.h, NEWS:
+	Added a crash speed-dependent explosion
+
+	* tracks/track8, src/ship.c, src/ship.h, src/track.c, tracks/track1, tracks/track3, tracks/track4, tracks/track5, ChangeLog:
+	Changed the way gravity is interpreted.  From now on, adjust from the track
+	files.  The numbers should be analogous to those in skyroads
+
+	* src/consts.h, src/main.c, src/render.c, src/scene.c, src/track.c, src/window.c:
+	Gravity now read from files.  Initialization structure touched up a bit.
+
+	* AUTHORS, ChangeLog, NEWS, TODO, mkchangelog:
+	administrative changes; added a ChangeLog-generation script
+
+	* src/model.c, src/model.h, src/scene.c, src/ship.c, src/ship.h, src/track.c, src/window.c, src/window.h, src/defs.h, src/input.c, src/main.c:
+	greater structure added to globals, ship model only loads once now
+
+2004-06-28  Peter Newman  <panewman@uiuc.edu>
+
+	* src/model.c, src/ship.c, src/consts.h, src/defs.h:
+	Bounding box added to ship
+
+2004-06-23  Peter Newman  <panewman@uiuc.edu>
+
+	* models/rapier.obj, models/rapier.wings, src/consts.h, src/model.c, src/model.h, src/ship.c, src/window.c, src/window.h:
+	New model loader now in use.
+
+2004-06-15  Peter Newman  <panewman@uiuc.edu>
+
+	* src/ship.c: Commented out experimental lines
+
+2004-06-14  Peter Newman  <panewman@uiuc.edu>
+
+	* src/scene.c, src/scene.h, src/text.h:
+	minor adjustment to header comments
+
+2004-06-13  Peter Newman  <panewman@uiuc.edu>
+
+	* src/model.c, src/model.h:
+	material name recognition added to model parser
+
+	* src/model.h, src/ship.c, src/model.c:
+	Some bugs worked out of the new mesh parser. no guarantee of functionality yet
+
+	* src/model.c, src/model.h:
+	coding complete on obj/mtl parser and structure population
+
+2004-06-12  Peter Newman  <panewman@uiuc.edu>
+
+	* config.log, config.status:
+	autogenerated files don't need to be in CVS
+
+	* src/Ghost.obj, src/falcon.obj:
+	models don't go in the src directory
+
+	* src/aircut3.ttf, src/ganymede.ttf, src/orbit.ttf:
+	We no longer put fonts here.
+
+	* ChangeLog, config.log, models/Makefile.am, models/rapier.mtl, models/rapier.obj, src/model.c, src/model.h, src/ship.c:
+	minor control change; added rapier model to version control; more work on mesh
+	loader
+
+	* src/images.c:
+	added conditions for compiling the separate png routine
+
+	* README, config.log, src/sound.c: sound file location fixed
+
+2004-06-11  Peter Newman  <panewman@uiuc.edu>
+
+	* src/model.c, src/model.h:
+	mtl parser done for now, ready to parse obj file
+
+2004-06-04  Peter Newman  <panewman@uiuc.edu>
+
+	* README, src/consts.h, src/model.c, src/model.h:
+	Began work on mtl parser, explosions sped up
+
+2004-06-03  Peter Newman  <panewman@uiuc.edu>
+
+	* ChangeLog, Makefile.am, autogen.sh, config.log, config.status, configure.ac, fonts/Makefile.am, fonts/aircut3.ttf, fonts/ganymede.ttf, fonts/orbit.ttf, models/Ghost.obj, models/Makefile.am, models/falcon.obj, src/Makefile.am, src/args.c, src/args.h, src/consts.h, src/render.h, src/text.c, src/track.c, src/track.h, tracks/bigtrack, tracks/easy_track, tracks/testtrack, tracks/track1, tracks/track2, tracks/track3, tracks/track4, tracks/track5, tracks/track6, tracks/track7, tracks/track8:
+	Reorganized project for greater compatibility with eventual make install
+	operation; removed ../ from ever having to be typed in again...
+
+	* tracks/bigtrack, tracks/easy_track, tracks/testtrack, tracks/track1, tracks/track2, tracks/track3, tracks/track4, tracks/track5, tracks/track6, tracks/track7, tracks/track8:
+	Tracks use jpeg versions of images now
+
+	* configure.ac, images/AM512.jpg, images/AN512.jpg, images/DR512.jpg, images/FG1024.jpg, images/HE1024.jpg, images/HU1024.jpg, images/IC1024.jpg, images/Makefile.am, images/NGC1024.jpg, images/PL1024.jpg, src/images.c, src/images.h, src/render.c, src/render.h, ChangeLog, TODO, config.log, config.status:
+	Using SDL_image for image loading now; PNGs converted to jpegs to save space
+
+2004-05-30  Peter Newman  <panewman@uiuc.edu>
+
+	* src/ship.c, src/text.c, src/window.c, config.log, config.status, configure.ac:
+	Autoconf configuration cleaned up, framerate capped at game speed.
+
+2004-05-29  Peter Newman  <panewman@uiuc.edu>
+
+	* src/render.c, src/text.c:
+	Added display lists for entering and exiting 2D text mode; made coordinate
+	system for positioning text more intuitive.
+
+	* src/render.c, src/text.c, src/text.h:
+	Wrote text functions that accept strings and positions.
+
+	* src/args.h, src/camera.c, src/camera.h, src/consts-falcon.h, src/consts.h, src/defs.h, src/images.c, src/images.h, src/input.c, src/input.h, src/main.c, src/model.c, src/model.h, src/render.c, src/render.h, src/scene.c, src/scene.h, src/ship.c, src/ship.h, src/sound.c, src/sound.h, src/text.c, src/text.h, src/track.c, src/track.h, src/window.c, src/window.h, src/args.c:
+	Added GPL notice to the source files
+
+2004-05-28  Peter Newman  <panewman@uiuc.edu>
+
+	* src/aircut3.ttf, src/ganymede.ttf, src/render.c, src/text.c, src/text.h:
+	Some font alignment issues fixed.  At the moment, the screen should give a
+	subtle reminder of the alphabet.
+
+	* src/defs.h, src/images.h, src/model.h, src/orbit.ttf, src/render.c, src/ship.h, src/sound.h, src/text.c, src/text.h, src/track.h, src/window.c, src/args.h:
+	Added a font and ran it across the screen.  Also, the progress and speed bars
+	were made transparent.
+
+2004-05-16  Paul Guder  <enyalios@enyalios.net>
+
+	* config.log, config.status, configure.ac:
+	Fixed bug in configure.ac.
+
+2004-05-13  Christopher Schmidt  <crschmidt@crschmidt.net>
+
+	* configure.ac:
+	Apparently, we were checking for libraries... and silently failing if
+	they didn't have them. That's great, for us, since we all have these
+	libraries installed, but assuming that everyone has SDL_ttf is kinda
+	dumb :P Set it so it will fail loudly, and not finish ./configure.
+
+2004-05-12  Peter Newman  <panewman@uiuc.edu>
+
+	* ChangeLog, NEWS, README, TODO: Updates to some project files.
+
+	* src/consts.h, src/ship.c: One more head-on collision bug fixed.
+
+	* src/window.h, src/camera.h, src/render.c, src/render.h, src/scene.c, src/ship.c, src/window.c:
+	Explosion happens at slower speeds, newline removed from FPS output, as it was
+	extraneous.
+
+2004-05-11  Peter Newman  <panewman@uiuc.edu>
+
+	* src/render.c, TODO: Wrote into the TODO.
+
+2004-05-11  Christopher Schmidt  <crschmidt@crschmidt.net>
+
+	* images/Makefile.am:
+	Adding the rest of the images to the makefile.am, so we actually release
+	all of them. Otherwise, you get a nice green screen of death in some
+	situations where you're trying to load images you don't have.
+
+	Also threw a new tarball on http://sdlroads.sf.net/ .
+
+2004-05-11  Peter Newman  <panewman@uiuc.edu>
+
+	* README, src/window.c:
+	Added SDL_ANYFORMAT to window.c, for better compatibility with graphics modes
+	other than my own.
+
+	* autogen.sh, src/render.c:
+	Autogen.sh needed some touching up.  Some other things too
+
+	* src/render.c:
+	Optimized the background rendering process using a display list.
+
+	* src/Makefile.am, tracks/Makefile.am, sound/Makefile.am, config.log, config.status, configure.ac, images/Makefile.am, Makefile.am:
+	Added more makefiles for smoother distribution.
+
+	* src/consts.h, src/render.c, src/ship.c:
+	2D effects drawn orthographically now.  Numerical hacks removed.  Drawmode
+	switches optimized using display lists.
+
+	* src/render.c, src/text.c, src/consts.h:
+	2D HUD effects corrected.  Fadeout is a bit broken at the moment, though.
+
+2004-05-10  Peter Newman  <panewman@uiuc.edu>
+
+	* src/args.c, src/args.h, src/model.c:
+	Minor updates all over; corrected some output strings in args.c
+
+	* src/input.c, src/input.h, src/main.c, src/window.c, src/window.h, src/camera.c, config.log:
+	Some spring cleaning; many unused variables and functions removed (i.e., mouse
+	handlers).  Also moved the sound initializations out of main and into window, as
+	requested by enyalios's comment in the older main.c
+
+	* src/ship.c:
+	Collision detection fixed.  Front-corner glitch fixed by re-prioritizing the
+	collision checks.
+
+	* TODO, config.log, config.status, configure.ac:
+	configure.ac should be fixed now
+
+	* src/consts.h, src/defs.h, src/render.c, src/ship.c, src/ship.h, src/text.c, src/text.h, src/track.c, src/Makefile.am:
+	Fixed some of the files up a bit in CVS.  Should be compilable after a checkout
+	now.  Also fixed some collision detection glitches.  Only one remains...
+
+2004-05-10  Christopher Schmidt  <crschmidt@crschmidt.net>
+
+	* src/Ghost.obj, src/falcon.obj:
+	Somehow, these got lost in the transition to the new CVS server.
+
+	* ChangeLog: Updating changelog for 0.10 release.
+
+	* src/.deps/scene.Po, src/.deps/ship.Po, src/.deps/sound.Po, src/.deps/track.Po, src/.deps/window.Po, src/.deps/args.Po, src/.deps/camera.Po, src/.deps/images.Po, src/.deps/input.Po, src/.deps/main.Po, src/.deps/mathlib.Po, src/.deps/model.Po, src/.deps/render.Po:
+	Removing .deps. I didn't mean to commit it in the first place, but it
+	was hiding. Darn . files.
+
+	* sound/game_crash.ogg, sound/music.xm: Initial import.
+
+	* sound/game_crash.ogg, sound/music.xm: New file.
+
+	* sound/darkness.ogg, sound/explosion.wav: Initial import.
+
+	* sound/darkness.ogg, sound/explosion.wav: New file.
+
+	* images/AN512.png, m4/sdl.m4, scripts/max_min.sh, src/.deps/args.Po, src/.deps/camera.Po, src/.deps/images.Po, src/.deps/input.Po, src/.deps/main.Po, src/.deps/mathlib.Po, src/.deps/model.Po, src/.deps/render.Po, src/.deps/scene.Po, src/.deps/ship.Po, src/.deps/sound.Po, src/.deps/track.Po, src/.deps/window.Po, src/Makefile.am, src/args.c, src/args.h, src/camera.c, src/camera.h, src/consts-falcon.h, src/consts.h, src/defs.h, src/images.c, src/images.h, src/input.c, src/input.h, src/main.c, src/mathlib.c, src/mathlib.h, src/model.c, src/model.h, src/render.c, src/render.h, src/scene.c, src/scene.h, src/ship.c, src/ship.h, src/sound.c, src/sound.h, src/track.c, src/track.h, src/window.c, src/window.h, tracks/bigtrack, tracks/easy_track, tracks/testtrack, tracks/track1, tracks/track2, tracks/track3, tracks/track4, tracks/track5, tracks/track6, tracks/track7, tracks/track8:
+	Initial import.
+
+	* images/AN512.png, m4/sdl.m4, scripts/max_min.sh, src/.deps/args.Po, src/.deps/camera.Po, src/.deps/images.Po, src/.deps/input.Po, src/.deps/main.Po, src/.deps/mathlib.Po, src/.deps/model.Po, src/.deps/render.Po, src/.deps/scene.Po, src/.deps/ship.Po, src/.deps/sound.Po, src/.deps/track.Po, src/.deps/window.Po, src/Makefile.am, src/args.c, src/args.h, src/camera.c, src/camera.h, src/consts-falcon.h, src/consts.h, src/defs.h, src/images.c, src/images.h, src/input.c, src/input.h, src/main.c, src/mathlib.c, src/mathlib.h, src/model.c, src/model.h, src/render.c, src/render.h, src/scene.c, src/scene.h, src/ship.c, src/ship.h, src/sound.c, src/sound.h, src/track.c, src/track.h, src/window.c, src/window.h, tracks/bigtrack, tracks/easy_track, tracks/testtrack, tracks/track1, tracks/track2, tracks/track3, tracks/track4, tracks/track5, tracks/track6, tracks/track7, tracks/track8:
+	New file.
+
+	* images/PL1024.png: Initial import.
+
+	* images/PL1024.png: New file.
+
+	* images/NGC1024.png: Initial import.
+
+	* images/NGC1024.png: New file.
+
+	* images/IC1024.png: Initial import.
+
+	* images/IC1024.png: New file.
+
+	* images/HU1024.png: Initial import.
+
+	* images/HU1024.png: New file.
+
+	* images/FG1024.png: Initial import.
+
+	* images/FG1024.png: New file.
+
+	* images/DR512.png: Initial import.
+
+	* images/DR512.png: New file.
+
+	* images/AM512.png, images/HE1024.png: Initial import.
+
+	* images/AM512.png, images/HE1024.png: New file.
+
+	* .in, config.status: Initial import.
+
+	* .in, config.status: New file.
+
+	* AUTHORS, COPYING, ChangeLog, INSTALL, Makefile.am, NEWS, README, TODO, autogen.sh, config.guess, config.log, config.sub, configure.ac, depcomp, install-sh, missing, mkinstalldirs:
+	Initial import.
+
+	* AUTHORS, COPYING, ChangeLog, INSTALL, Makefile.am, NEWS, README, TODO, autogen.sh, config.guess, config.log, config.sub, configure.ac, depcomp, install-sh, missing, mkinstalldirs:
+	New file.
+
