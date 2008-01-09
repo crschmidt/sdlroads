@@ -149,7 +149,7 @@ static void process_face_line(const char* buf, GLuint fi, mesh_t* mesh)
     char* bufpos;
     char* line;
 
-    line = (char*)_strdup(buf);
+    line = (char*)strdup(buf);
 
     mesh->faces[fi].vertex_count = token_count(&buf[2]);
     mesh->faces[fi].v_indices = 
