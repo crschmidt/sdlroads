@@ -21,9 +21,9 @@
  *
  *****************************************************************************/
 
-#include "defs.h"
-#include "text.h"
-#include "consts.h"
+#include "sdlroads.h"
+
+#include "SDL_ttf.h"
 
 typedef struct
 {
@@ -44,9 +44,9 @@ static GLuint big_letters[128];
 
 static GLuint start2Dtext, end2Dtext;
 
-static void inline text_putchar(GLuint* font_set, glyph_metric_t* gm, 
+static void text_putchar(GLuint* font_set, glyph_metric_t* gm, 
                                 char letter, int x, int y);
-static void inline text_putstring(GLuint* font_set, glyph_metric_t* gm, 
+static void text_putstring(GLuint* font_set, glyph_metric_t* gm, 
         TTF_Font* font, const char* string, Uint16 start_x, Uint16 start_y,
         Uint16 * end_x, Uint16 * end_y);
 
@@ -255,7 +255,7 @@ static void build_letter_textures(TTF_Font* font, GLuint* letter_textures,
  * Font rendering
  *
  ************************************************/
-static void inline text_putchar(GLuint* font_set, glyph_metric_t* gm, 
+static void text_putchar(GLuint* font_set, glyph_metric_t* gm, 
                          char letter, int x, int y)
 {
 
@@ -272,7 +272,7 @@ static void inline text_putchar(GLuint* font_set, glyph_metric_t* gm,
 
 }
 
-static void inline text_putstring(GLuint* font_set, glyph_metric_t* gm, 
+static void text_putstring(GLuint* font_set, glyph_metric_t* gm, 
         TTF_Font* font, const char* string, Uint16 start_x, Uint16 start_y,
         Uint16 * end_x, Uint16 * end_y)
 {
@@ -342,12 +342,8 @@ void print_small_s(const char* string, Uint16 start_x, Uint16 start_y,
  ************************************************/
 void text_kill()
 {
-    if (font_large != NULL) {
-        TTF_CloseFont(font_large);
-    } 
-    if (font_small != NULL) {
-        TTF_CloseFont(font_small);
-    }    
+    TTF_CloseFont(font_large);
+    TTF_CloseFont(font_small);
     TTF_Quit();
 }
 /* $Id: text.c,v 1.15.2.1 2005/01/23 23:11:09 y3t39 Exp $ */

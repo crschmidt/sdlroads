@@ -21,10 +21,7 @@
  *
  *****************************************************************************/
 
-#include "core.h"
-#include "args.h"
-#include "sound.h"
-#include "menu.h"
+#include "sdlroads.h"
 
 /* one-time init function - contains a set of actions to be 
  * performed only ONCE per run */

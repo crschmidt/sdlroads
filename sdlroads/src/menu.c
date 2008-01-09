@@ -21,12 +21,9 @@
  *
  *****************************************************************************/
 
-#include "defs.h"
-#include "consts.h"
-#include "util.h"
-#include "core.h"
-#include "sound.h"
+#include "sdlroads.h"
 
+#include <stdio.h>
 #include "menu.h"
 
 static menu_t root, options, level, *current_menu;
@@ -71,7 +68,7 @@ void menu_init()
     /* make entries for the levels */
     for(i=0; i<level.itemcount; i++)
     {
-        snprintf(buf, 32, "track%d", i);
+        sprintf(buf, "track%d", i);
         create_level(&level, i, buf, i);
     }
     create_zap(&level, level.itemcount-1, "Exit", &root);
@@ -226,12 +223,6 @@ static void update_options()
 
 static void process()
 {
-    void *itemdata;
-
-    /* whether or not this pointer's use is good programming technique,
-     * I can't do this function without it. */
-    option_data_t *odp;
-
     /* screw memory efficiency.  this saves me typing */
     menuitem_t* selected = &current_menu->items[current_menu->selected];
 

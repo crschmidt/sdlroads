@@ -21,10 +21,9 @@
  *
  *****************************************************************************/
 
-#include "core.h"
+#include "sdlroads.h"
 #include <ctype.h>
-#include <unistd.h>
-#include "util.h"
+
 
 static GLushort width;
 
@@ -60,11 +59,9 @@ int settings_file_read()
 {
     char filename[256];
     char buf[100];
-    char x[256];
     FILE* f;
     unsigned short line = 0;
     int scanreturn;
-    int fullscreen_temp;
 
     prepend_config_path(CONFIG_FILE, filename);
 
@@ -72,6 +69,8 @@ int settings_file_read()
 
     /* no checks for windows users! SORRY! */
     f = fopen(filename, "r");
+	if (!f)
+		return 1;
 
 #else
     if(access(filename, F_OK) == 0)
@@ -200,5 +199,7 @@ int settings_init(int argc, char **argv)
     settings.aspect_ratio =
         (GLfloat)settings.width / 
         (GLfloat)settings.height;
+
+	return 1;
 }
 /* $Id: settings.c,v 1.13.2.2 2005/01/23 22:07:43 y3t39 Exp $ */

@@ -20,7 +20,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 // mathlib.c -- math primitives
 
 #include <math.h>
-#include "core.h"
+#include <stdio.h>
+#include "mathlib.h"
 
 void Sys_Error (char *error, ...);
 

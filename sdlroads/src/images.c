@@ -21,20 +21,11 @@
  *
  *****************************************************************************/
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
+#include "sdlroads.h"
 
-#include "defs.h"
-#include "images.h"
-
-#ifdef HAVE_LIBPNG
-#include <png.h>
-#endif
-
+#include "SDL_image.h"
 #include <stdio.h>
 
-#define SIGBYTES 8
 
 static int image_read_png(const char* filename, GLubyte** image_data, 
         GLushort* height, GLushort* width);
@@ -96,6 +87,10 @@ static int image_read(const char* filename)
 }
 
 #ifdef HAVE_LIBPNG
+#include <png.h>
+
+#define SIGBYTES 8
+
 static int image_read_png(const char* filename, GLubyte** image_data, 
         GLushort* height, GLushort* width )
 {

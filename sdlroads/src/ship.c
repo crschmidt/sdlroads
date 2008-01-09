@@ -21,20 +21,15 @@
  *
  *****************************************************************************/
 
-#include "defs.h"
-#include "ship.h"
-#include "track.h"
-#include "args.h"
-#include "sound.h"
+#include "sdlroads.h"
+
+#include <math.h>
 
 enum death_t {FALL, CRASH};
 
 
 void ship_init(ship_t* s)
 {
-
-    GLfloat x_scale, z_scale, z_shift;
-
     /* sometimes the ship isn't at the beginning of a track */
     if(s->save == GL_FALSE)
     {
@@ -132,7 +127,6 @@ void ship_render(ship_t* s)
 void ship_update(ship_t* s)
 {
     vec3_t x,y;
-    GLboolean off_ground;
 
     if(s->on_ground)
         s->acc[1] = 0;
@@ -252,7 +246,7 @@ void ship_update(ship_t* s)
         ship_win(s);
 }
 
-void inline ship_sides(ship_t* s)
+void ship_sides(ship_t* s)
 {
     VectorCopy(s->pos, s->front_r);
     VectorCopy(s->pos, s->front_l);

@@ -22,13 +22,12 @@
  *
  *****************************************************************************/
 
-#include "SDL_mixer.h"
-#include "sound.h"
-#include "args.h"
-#include "consts.h"
-#include "util.h"
-#include "defs.h"
 
+#include "sdlroads.h"
+
+#ifndef NO_SOUND
+
+#include "SDL_mixer.h"
 
 static Mix_Music *music;
 static Mix_Chunk *explosion;
@@ -108,4 +107,15 @@ void sound_kill()
     Mix_FreeMusic(music);
     Mix_FreeChunk(explosion);
 }
+
+#else // NO_SOUND
+
+void sound_init() {}
+void crash_sound(){}
+void sound_kill() {}
+void music_toggle(int onoff) {}
+void sound_toggle(int onoff) {}
+
+#endif
+
 /* $Id: sound.c,v 1.10.2.2 2005/01/23 22:07:43 y3t39 Exp $ */

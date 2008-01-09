@@ -21,11 +21,10 @@
  *
  *****************************************************************************/
 
-#include "defs.h"
-#include "track.h"
-#include "consts.h"
-#include "ship.h"
-#include "util.h"
+#include "sdlroads.h"
+
+#define track_height_difference(a,b)  \
+    track_height_at_point(a)-track_height_at_point(b)
 
 /* this will be the number of colors statically defined */
 #define STATIC_COLORS 8

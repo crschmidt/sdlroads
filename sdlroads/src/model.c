@@ -22,9 +22,7 @@
  *****************************************************************************/
 
 
-#include "consts.h"
-#include "scene.h"
-#include "model.h"
+#include "sdlroads.h"
 
 #include <ctype.h>
 
@@ -33,7 +31,7 @@ static void parse_obj_file(char* name, mesh_t* mesh);
 static GLint material_index(const char* name, mesh_t* m);
 static GLuint generate_display_list(mesh_t* mesh);
 static GLushort token_count(const char* string);
-static inline void process_face_line(const char* line, GLuint fi, mesh_t* mesh);
+static void process_face_line(const char* line, GLuint fi, mesh_t* mesh);
 
 
 /* this function encapsulates the process of loading a mesh model. */
@@ -53,7 +51,7 @@ GLuint mesh_cache(char* name, mesh_t* mesh)
 static void parse_obj_file(char* name, mesh_t* mesh)
 {
     FILE* fp;
-    char buf[256], mtlbuf[90];
+    char buf[256];
     char filename[256];
     GLuint fi = 0;
     GLuint vi = 0;
@@ -144,15 +142,14 @@ static void parse_obj_file(char* name, mesh_t* mesh)
     fclose(fp);
 }
 
-static inline void process_face_line(const char* buf, GLuint fi, mesh_t* mesh)
+static void process_face_line(const char* buf, GLuint fi, mesh_t* mesh)
 {
     char** tokens;
     GLubyte i = 0;
     char* bufpos;
     char* line;
-    GLuint vn_index, v_index;
 
-    line = (char*)strdup(buf);
+    line = (char*)_strdup(buf);
 
     mesh->faces[fi].vertex_count = token_count(&buf[2]);
     mesh->faces[fi].v_indices = 
@@ -370,7 +367,6 @@ static GLshort parse_mtl_file(char* name, material_t** materials)
     GLushort line = 0;
     GLshort mat_count;
     GLshort mat_index = -1;
-    GLshort i;
 
 
     mat_count = 0; 
@@ -470,7 +466,7 @@ static GLshort parse_mtl_file(char* name, material_t** materials)
 
 void destroy_mesh(mesh_t* mesh)
 {
-    GLint i,j;
+    GLuint i;
 
     for(i=0; i<mesh->face_count; i++)
     {
