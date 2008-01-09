@@ -87,15 +87,8 @@ successful exit)
 
 ================================================================================
 
-for current CVS access:
+for current SVN access:
 
-$ cvs -z3 -d:pserver:anonymous@cvs.sf.net:/cvsroot/sdlroads co sdlroads
+svn co htp://sdlroads.googlecode.com/svn/trunk/sdlrods
 
-(don't forget to autoreconf before ./configure)
-
-At this moment, the CVS version doesn't work so well.  If you want to play
-without frustration, followup your CVS checkup by checking out the alpha-src
-branch:
-
-$ cd sdlroads
-$ cvs up -r alpha-src
+Remember to autoreconf before ./configure-ing.
