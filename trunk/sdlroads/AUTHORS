@@ -1,16 +1,16 @@
-Peter Newman <panewman@uiuc.edu>
+Peter Newman
  - Basic game, including modelling, original track file format, most OpenGL 
    stuff, SDL
  - Pretty much everything that isn't listed under other topics.
  - Converted C++ ship model loader and explosion classes to C
  - Improved image for background: orthographic drawing
 
-Chris "crschmidt" Schmidt <crschmid@uiuc.edu>
+Chris "crschmidt" Schmidt
  - Argument parsing
  - Level design: Level1,2,3,4,5,6,7 bigtrack
  - Image loading for track backgrounds
 
-Paul "enyalios" Guder <guder@uiuc.edu>
+Paul "enyalios" Guder
  - Level design: easy_track
  - Better death code
  - Fade out as you fall off the track
