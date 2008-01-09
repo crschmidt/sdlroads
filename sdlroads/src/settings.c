@@ -65,26 +65,9 @@ int settings_file_read()
 
     prepend_config_path(CONFIG_FILE, filename);
 
-#ifdef WIN32
-
     f = fopen(filename, "r");
 	if (!f)
 		return 1;
-
-#else
-    if(access(filename, F_OK) == 0)
-    {
-        printf("Attempting to open file: %s\n", filename);
-        f = fopen(filename, "r");
-    }
-    else if(settings_file_write_default())
-        f = fopen(filename, "r");
-    else
-    {
-        fprintf(stderr, "Unable to write a configuration file\n");
-        return;
-    }
-#endif
 
     while(fgets(buf, 100, f))
     {
