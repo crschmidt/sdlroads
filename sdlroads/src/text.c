@@ -342,8 +342,12 @@ void print_small_s(const char* string, Uint16 start_x, Uint16 start_y,
  ************************************************/
 void text_kill()
 {
-    TTF_CloseFont(font_large);
-    TTF_CloseFont(font_small);
+    if (font_large != NULL) {
+        TTF_CloseFont(font_large);
+    } 
+    if (font_small != NULL) {
+        TTF_CloseFont(font_small);
+    }    
     TTF_Quit();
 }
 /* $Id: text.c,v 1.15.2.1 2005/01/23 23:11:09 y3t39 Exp $ */
