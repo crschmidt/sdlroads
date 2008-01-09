@@ -357,4 +357,4 @@ static void create_yes_no_option(menu_t * parent, int position, char title[32],
     strcpy(odp->option_headings[1], "Yes");
     odp->option_change_callback = option_change_callback;
 }
-/* $Id: menu.c,v 1.21.2.2 2005/01/23 22:07:43 y3t39 Exp $ */
+/* $Id$ */

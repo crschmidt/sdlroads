@@ -256,4 +256,4 @@ static void fg_render()
     glPopAttrib();
 }
 
-/* $Id: render.c,v 1.26.2.1 2005/01/23 23:11:09 y3t39 Exp $ */
+/* $Id$ */

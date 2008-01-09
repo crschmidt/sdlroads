@@ -346,4 +346,4 @@ void text_kill()
     TTF_CloseFont(font_small);
     TTF_Quit();
 }
-/* $Id: text.c,v 1.15.2.1 2005/01/23 23:11:09 y3t39 Exp $ */
+/* $Id$ */

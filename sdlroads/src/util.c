@@ -186,4 +186,4 @@ error_print(const char * where, const char * str)
     /* TODO: in game logging, perhaps? */
 }
 
-/* $Id: util.c,v 1.9 2005/01/12 22:19:59 y3t39 Exp $ */
+/* $Id$ */

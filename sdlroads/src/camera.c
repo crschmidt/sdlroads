@@ -57,4 +57,4 @@ static void normalize_vectors()
     VectorNormalize(camera_look);
     VectorNormalize(camera_up);
 }
-/* $Id: camera.c,v 1.6 2004/12/31 00:31:23 y3t39 Exp $ */
+/* $Id$ */

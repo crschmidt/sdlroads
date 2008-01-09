@@ -490,4 +490,4 @@ static GLint material_index(const char* name, mesh_t* m)
     }
     return -1;
 }
-/* $Id: model.c,v 1.17 2004/12/31 00:31:23 y3t39 Exp $ */
+/* $Id$ */

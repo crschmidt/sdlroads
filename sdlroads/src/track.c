@@ -477,4 +477,4 @@ GLfloat track_to_ship(vec3_t p)
 
     return height;
 }
-/* $Id: track.c,v 1.18 2005/01/03 03:20:52 y3t39 Exp $ */
+/* $Id$ */

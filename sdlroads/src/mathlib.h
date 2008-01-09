@@ -108,4 +108,4 @@ void RotatePointAroundVector( vec3_t dst, const vec3_t dir, const vec3_t point, 
 
 
 #endif
-/* $Id: mathlib.h,v 1.3 2004/12/31 00:31:23 y3t39 Exp $ */
+/* $Id$ */

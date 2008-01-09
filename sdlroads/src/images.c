@@ -170,4 +170,4 @@ static int image_read_png(const char* filename, GLubyte** image_data,
     return 1;
 }
 #endif
-/* $Id: images.c,v 1.7 2004/12/31 00:31:23 y3t39 Exp $ */
+/* $Id$ */

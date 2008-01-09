@@ -95,4 +95,4 @@ void print_version(char **argv)
     printf(version_string);
 }
 
-/* $Id: args.c,v 1.9.2.1 2005/01/23 23:11:09 y3t39 Exp $ */
+/* $Id$ */
