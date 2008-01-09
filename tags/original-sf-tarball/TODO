@@ -1,0 +1,24 @@
+KEY:
+* = beta release 1 - version 0.10
+- = later version...
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+Program Flow:
+=============
+- Cleaner stdout logging
+- Transitional states would be nice - fade in and out of the menu and game
+
+Menus:
+======
+- quick escape key from a menu to its parent?  Perhaps we need to
+  reconsider the ESC key's purpose in this game
+
+Tracks:
+=======
+- menu for choosing the track list
+- more complicated track structures, like tunnels
+
+Gameplay:
+=========
+- More better HUD
+- Correct left-right during jumps
