@@ -1,3 +1,7 @@
+next (??)
+- Moved to Google code
+- More prevention against segfaults in command line args
+
 0.1 (1/23/05)
 - Menu
 - 'f' now toggles fullscreen
