@@ -8,9 +8,10 @@ SDL_mixer
 SDL_image
 SDL_ttf
 
-SDL_ttf is only available at the time of writing as an unstable package. As 
-such, you will need to build the unstable package. One way to add unstable
-packages to your download list is via FinkCommander, under Preferences.
+This can be accomplished via the following:
+
+  sudo apt-get install sdl sdl-mixer sdl-image sdl-ttf \
+                       sdl-mixer-shlibs sdl-image-shlibs sdl-ttf-shlibs
 
 Once you have done this, you can download the SDLRoads code from CVS:
 export CVSROOT=":pserver:anonymous@cvs.sourceforge.net:/cvsroot/sdlroads"
@@ -34,7 +35,7 @@ installed by default on OS X.
 
 Then run the following commands:
 
-aclocal -I m4
+aclocal
 autoconf
 autoheader
 automake
