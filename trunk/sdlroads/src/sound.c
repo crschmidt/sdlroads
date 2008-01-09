@@ -118,4 +118,4 @@ void sound_toggle(int onoff) {}
 
 #endif
 
-/* $Id: sound.c,v 1.10.2.2 2005/01/23 22:07:43 y3t39 Exp $ */
+/* $Id$ */

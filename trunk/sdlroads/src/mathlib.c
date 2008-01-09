@@ -577,4 +577,4 @@ fixed16_t Invert24To16(fixed16_t val)
 }
 
 #endif
-/* $Id: mathlib.c,v 1.3 2004/12/31 00:31:23 y3t39 Exp $ */
+/* $Id$ */

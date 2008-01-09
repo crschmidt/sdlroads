@@ -64,4 +64,4 @@ void set_level(int l)
 	scene_init();
 }
 
-/* $Id: scene.c,v 1.14 2005/01/12 23:45:13 y3t39 Exp $ */
+/* $Id$ */

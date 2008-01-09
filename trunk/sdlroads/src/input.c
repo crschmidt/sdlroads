@@ -102,4 +102,4 @@ void input_keyup( SDL_keysym* key )
         default:break;
     }
 }
-/* $Id: input.c,v 1.11 2004/12/31 00:31:23 y3t39 Exp $ */
+/* $Id$ */

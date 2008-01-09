@@ -131,4 +131,4 @@ void window_restart()
     render_init();
     text_init();
 } 
-/* $Id: window.c,v 1.31 2005/01/12 23:45:13 y3t39 Exp $ */
+/* $Id$ */

@@ -314,4 +314,4 @@ void ship_win(ship_t* s)
     game_state.paused = 0; 
     game_state.level++;*/
 }
-/* $Id: ship.c,v 1.27 2005/01/12 23:45:13 y3t39 Exp $ */
+/* $Id$ */

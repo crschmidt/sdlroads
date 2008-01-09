@@ -102,4 +102,4 @@ void quit(int code)
         settings_file_write();
     exit(0);
 }
-/* $Id: main.c,v 1.24 2005/01/12 22:38:01 y3t39 Exp $ */
+/* $Id$ */
