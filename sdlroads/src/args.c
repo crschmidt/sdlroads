@@ -41,6 +41,7 @@ static void print_version(char **argv);
 int parse_args(int argc, char** argv, game_options_t *config) {
 
     int i, returnval;
+    int tempval = 0;
 
     returnval = 1;
 
@@ -50,20 +51,44 @@ int parse_args(int argc, char** argv, game_options_t *config) {
                 config->fullscreen = 1;
                 break;
             case 'h':
-                config->height = atoi(argv[i+1]);
-                i++;
-                break;
+                if (argc > i + 1) {
+                    tempval = atoi(argv[i+1]);
+                    if (tempval) {
+                        config->height = tempval;
+                        i++;
+                        break;
+                    }
+                }
+                print_help(argv);
+                exit(0);
             case 'w':
-                config->width = atoi(argv[i+1]);
-                i++;
-                break;
+                if (argc > i + 1) {
+                    tempval = atoi(argv[i+1]);
+                    if (tempval) {
+                        config->width = tempval;
+                        i++;
+                        break;
+                    }
+                }
+                print_help(argv);
+                exit(0);
             case 'm':
-                strcpy(config->musicfilename, argv[i+1]);
-                i++;
+                if (argc > i + 1) {
+                    strcpy(config->musicfilename, argv[i+1]);
+                    i++;
+                } else {    
+                    print_help(argv);
+                    exit(0);
+                }    
                 break;
             case 't':
-                strcpy(config->track_path, argv[i+1]);
-                i++;
+                if (argc > i + 1) {
+                    strcpy(config->track_path, argv[i+1]);
+                    i++;
+                } else {    
+                    print_help(argv);
+                    exit(0);
+                }    
                 break;
             case 'v':
             case 'V':
