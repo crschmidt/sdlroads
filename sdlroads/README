@@ -89,6 +89,6 @@ successful exit)
 
 for current SVN access:
 
-svn co htp://sdlroads.googlecode.com/svn/trunk/sdlrods
+svn co htp://sdlroads.googlecode.com/svn/trunk/sdlroads
 
 Remember to autoreconf before ./configure-ing.
