@@ -1,0 +1,50 @@
+The CVS version of SDLRoads uses Unix packages of the SDL Libraries to compile.
+As such, if you would like to compile the CVS version of SDLRoads, the easiest
+way to do so is to use Fink (or possibly Darwinports) to install the following
+libraries:
+
+SDL
+SDL_mixer
+SDL_image
+SDL_ttf
+
+SDL_ttf is only available at the time of writing as an unstable package. As 
+such, you will need to build the unstable package. One way to add unstable
+packages to your download list is via FinkCommander, under Preferences.
+
+Once you have done this, you can download the SDLRoads code from CVS:
+export CVSROOT=":pserver:anonymous@cvs.sourceforge.net:/cvsroot/sdlroads"
+cvs co sdlroads
+
+This will create an "sdlroads" directory.
+
+Typically, you could then use ./autogen.sh to compile. However, because you
+will be using an Apple framework to provide access to the OpenGL calls, you 
+will need to make a few small changes.
+
+Remove the following lines from configure.ac:
+dnl Checks for libraries.
+AC_CHECK_LIB([GL], [glBegin],, AC_MSG_ERROR([Error! You do not have OpenGL
+installed. You will not be able to play this game.]))
+AC_CHECK_LIB([GLU], [gluLookAt],, AC_MSG_ERROR([Error! You do not have OpenGL
+installed. You will not be able to play this game.]))
+
+These lines are unneccesary - they check for the OpenGL Framework, which is
+installed by default on OS X.
+
+Then run the following commands:
+
+aclocal -I m4
+autoconf
+autoheader
+automake
+export LIBS="`sdl-config --libs`"
+./configure
+make
+
+Then, become root, and
+make install
+
+Lastly, type sdlroads, and all should be well.
+
+If you have problems with these steps, please contact crschmidt@crschmidt.net.
