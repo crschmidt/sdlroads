@@ -23,8 +23,6 @@
 
 #include "defs.h"
 #include "consts.h"
-#include "util.h"
-#include "menu.h"
 
 #include <stdarg.h>
 

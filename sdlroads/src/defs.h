@@ -27,7 +27,6 @@
 #include "SDL.h"
 #include "SDL_opengl.h"
 #include "mathlib.h"
-#include "util.h"
 
 /* call this function to gracefully quit the game */
 extern void quit(int code);

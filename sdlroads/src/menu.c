@@ -24,7 +24,47 @@
 #include "sdlroads.h"
 
 #include <stdio.h>
-#include "menu.h"
+
+
+typedef enum
+{
+    IT_LEVEL,       /* sticks the player in a level */
+    IT_ZAP,         /* zaps to another menu */
+    IT_OPTION       /* item with options to choose from */
+} itemtype_enum;
+
+
+/* Menu structures
+ */
+
+typedef struct
+{
+    int optioncount;
+    char **option_headings;
+    int selected_option;
+
+    /* function to call when setting is changed */
+    void (*option_change_callback)(int selected);
+} option_data_t;
+
+typedef struct
+{
+    char text[32];
+    itemtype_enum type;
+    void *itemdata;
+} menuitem_t;
+
+struct menu_tag
+{
+    char title[32];
+    struct menu_tag *parent;
+
+    menuitem_t *items;
+    int itemcount;
+    int selected;
+};
+typedef struct menu_tag menu_t;
+
 
 static menu_t root, options, level, *current_menu;
 
