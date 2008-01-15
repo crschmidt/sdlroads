@@ -23,11 +23,20 @@
 
 #include "sdlroads.h"
 
-/* one-time init function - contains a set of actions to be 
- * performed only ONCE per run */
-static void init(int argc, char** argv)
+static SDL_TimerID tick_timer_id;
+static SDL_Event tick_event;
+
+Uint32 timer_tick(Uint32 interval, void *param)
 {
-    settings_init(argc, argv);
+	sdl_error_check(SDL_PushEvent(&tick_event) == 0);
+	return interval;
+}
+
+int main(int argc, char** argv)
+{
+    SDL_Event event;
+
+	settings_init(argc, argv);
 
     track_list_read();
     menu_init();
@@ -46,46 +55,43 @@ static void init(int argc, char** argv)
 
     render_init();
 
-    SDL_Init(0);
-}
+    sdl_error_check(SDL_Init(SDL_INIT_TIMER) == 0);
+	tick_event.type = SDL_USEREVENT;
+	sdl_error_check(tick_timer_id = SDL_AddTimer(1000/WINDOW_FPS, timer_tick, NULL));
 
-int main(int argc, char** argv)
-{
-    SDL_Event event;
-    init(argc, argv);
 
-    while(1)
+    while(SDL_WaitEvent(&event))
     {
-        SDL_PumpEvents();
-
-        while(SDL_PeepEvents(&event, 1, SDL_GETEVENT, SDL_ALLEVENTS) > 0)
+        switch(event.type)
         {
-            switch(event.type)
-            {
-                case SDL_KEYUP:
-                    if(game_state.state != MENU)
-                        input_keyup(&event.key.keysym);
+            case SDL_KEYUP:
+                if(game_state.state != MENU)
+                    input_keyup(&event.key.keysym);
 
-                    break;
-                case SDL_KEYDOWN:
-                    if(game_state.state == MENU)
-                        menu_input(&event.key.keysym);
-                    else
-                        input_keydown(&event.key.keysym);
+                break;
+            case SDL_KEYDOWN:
+                if(game_state.state == MENU)
+                    menu_input(&event.key.keysym);
+                else
+                    input_keydown(&event.key.keysym);
 
-                    break;
-                case SDL_QUIT:
-                    quit(0);
-                    break;
-                default:
-                    break;
-            }
+                break;
+            case SDL_QUIT:
+                quit(0);
+                break;
+			case SDL_USEREVENT:
+				window_draw();
+				break;
+            default:
+                break;
         }
-        window_draw();
     }
+	
+	/* broke out of event loop */
+	sdl_error_check(0);
 
-    /* never happens */
-    return -9;
+	/* unreachable */
+    return 1;
 }
 
 void quit(int code)

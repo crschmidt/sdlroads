@@ -80,7 +80,6 @@ int window_init(int re_initialize)
 
 void window_draw()
 {
-    static int last_tick = 0;
     int frame_time = 0;
 
     if(!game_state.window_valid)
@@ -89,33 +88,23 @@ void window_draw()
         game_state.window_valid = 1;
     }
 
-    if(SDL_GetTicks() - last_tick > WINDOW_FPS)
-    {
-        last_tick = SDL_GetTicks();
-
-        if(game_state.state == MENU)
-            menu_render();
-        else if(game_state.victory) {
-            if(SDL_GetTicks() > game_state.victory + 1000)
-            {
-                game_state.victory = 0;
-				set_level(game_state.level+1);
-            }
-        }
-        else if(!game_state.paused)
+    if(game_state.state == MENU)
+        menu_render();
+    else if(game_state.victory) {
+        if(SDL_GetTicks() > game_state.victory + 1000)
         {
-            scene_update();
-            render_draw();
-        } else {
-            SDL_Delay(100);
+            game_state.victory = 0;
+			set_level(game_state.level+1);
         }
-        SDL_GL_SwapBuffers();
-        
-        frame_time = SDL_GetTicks() - last_tick;
-        
-        if(frame_time < 20) 
-            SDL_Delay(20 - frame_time);
     }
+    else if(!game_state.paused)
+    {
+        scene_update();
+        render_draw();
+    } else {
+        SDL_Delay(100);
+    }
+    SDL_GL_SwapBuffers();
 }
 
 void window_restart()
