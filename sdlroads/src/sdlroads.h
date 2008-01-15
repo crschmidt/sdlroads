@@ -17,6 +17,8 @@
 #include "defs.h"
 #include "mathlib.h"
 
+#include <stdarg.h>
+
 ///////////////////////////////////////////////////////////////////////
 // Settings and Config
 extern int parse_args(int argc, char** argv, game_options_t *config);
@@ -125,5 +127,15 @@ extern int res_code_height(int res_code);
 extern int width_res_code(int width);
 extern void toggle_resolution(int res_code);
 extern void error_print(const char * where, const char * str);
+
+#ifdef NDEBUG
+# define sr_assert(c)
+#else
+# define sr_assert(c) if(!(c)) _sr_assert(#c, __FILE__, __LINE__)
+#endif
+#define sdl_error_check(c) if (!(c)) _sr_fatal(SDL_GetError(), __FILE__, __LINE__)
+extern void _sr_assert(const char *, const char *, int);
+extern void _sr_fatal(const char *, const char *, int);
+extern void sr_message(const char *, ...);
 
 #endif
