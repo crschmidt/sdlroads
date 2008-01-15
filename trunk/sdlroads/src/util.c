@@ -21,10 +21,7 @@
  *
  *****************************************************************************/
 
-#include "defs.h"
-#include "consts.h"
-
-#include <stdarg.h>
+#include "sdlroads.h"
 
 
 /* FIXME: it would be best if this were a macro */
@@ -182,6 +179,26 @@ error_print(const char * where, const char * str)
     printf("\n");
 
     /* TODO: in game logging, perhaps? */
+}
+
+void sr_message(const char *format, ...)
+{
+	va_list ap;
+	va_start(ap, format);
+	vprintf(format, ap);
+	va_end(ap);
+}
+
+void _sr_fatal(const char *msg, const char *file, int line)
+{
+	sr_message("SDL_Error in %s, line %d: %s\n", file, line, msg);
+	quit(1);
+}
+
+void _sr_assert(const char *string, const char *file, int line)
+{
+	sr_message("Assertion failed: \"%s\" in %s, line %d\n", string, file, line);
+	quit(1);
 }
 
 /* $Id$ */
