@@ -146,6 +146,6 @@
  * Draw settings
  *
  **************************************************************/
-#define WINDOW_FPS 1000.0f/45.0f
+#define WINDOW_FPS 50
 
 /* $Id$ */
