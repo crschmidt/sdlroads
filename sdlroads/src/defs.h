@@ -122,7 +122,6 @@ typedef struct
 typedef struct
 {
     vec3_t vel;
-    vec3_t acc;
 
     GLfloat ship_jump_v0;
 

@@ -38,9 +38,6 @@ void ship_init(ship_t* s)
         s->pos[2] = 1;
         s->vel[1] = s->vel[2] = 0;
 
-        if(s->acc[2] < SHIP_ACCEL) /* condition added by request */
-            s->acc[2] = 0;
-
         s->on_ground = 0;
     }
     else
@@ -106,7 +103,7 @@ void ship_render(ship_t* s)
 
     glDisable(GL_LIGHTING);
 
-    /* bounding box 
+#ifdef DEBUG
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     glPushMatrix();
     glTranslatef(0, 0.01-SHIP_BOTTOM, 0);
@@ -118,7 +115,7 @@ void ship_render(ship_t* s)
         glVertex3fv(s->back_r);
     glEnd();
     glPopMatrix();
-    */
+#endif
 
     glPopAttrib();
 
@@ -128,14 +125,23 @@ void ship_update(ship_t* s)
 {
     vec3_t x,y;
 
-    if(s->on_ground)
-        s->acc[1] = 0;
-    else
-        s->acc[1] = SHIP_GRAV;
+    if(!s->on_ground)
+        s->vel[1] += SHIP_GRAV;
 
-    VectorAdd(s->vel, s->acc, s->vel);
+	sr_assert(keydown);
+	if(keydown[SDLK_UP])
+		player.vel[2] = MIN(player.vel[2] + SHIP_ACCEL, SHIP_VEL_MAX);
+	if(keydown[SDLK_DOWN])
+		player.vel[2] = MAX(player.vel[2] - SHIP_ACCEL, SHIP_VEL_MIN);
+	if(keydown[SDLK_LEFT])
+		player.pos[0] += SHIP_CROSS_VEL;
+	if(keydown[SDLK_RIGHT])
+		player.pos[0] -= SHIP_CROSS_VEL;
 
 	CLAMP(s->vel[2], SHIP_VEL_MIN, SHIP_VEL_MAX);
+
+	if(keydown[SDLK_SPACE])
+		ship_jump(s);
 
     if(s->bottom[1] > track_to_ship(s->bottom))
         s->on_ground = 0;

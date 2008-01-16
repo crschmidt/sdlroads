@@ -26,8 +26,30 @@
 
 
 void scene_update()
-{   
-	if(!game_state.paused)
+{
+	if(keydown[SDLK_ESCAPE])
+	{
+		game_state.state = MENU;
+		return;
+	}
+	if(keydown[SDLK_q])
+		quit(0);
+	if(keydown[SDLK_r])
+		ship_restart(&player);
+	/* pausing has some issues still...
+	if(keydown[SDLK_p])
+		game_state.paused = !game_state.paused;
+	*/
+
+    if(game_state.victory) {
+        if(SDL_GetTicks() > game_state.victory + 1000)
+        {
+            game_state.victory = 0;
+			set_level(game_state.level+1);
+        }
+    }
+
+	else if(!game_state.paused)
 	{
 		ship_update(&player);
 		camera_update();
@@ -39,7 +61,6 @@ void scene_init()
 	ship_init(&player);
 
 	game_state.paused = 0;
-	player.vel[0] = 0;
 
 	if(game_state.level >= game_state.track_count)
 		game_state.level = 0;
