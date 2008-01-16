@@ -80,8 +80,6 @@ int window_init(int re_initialize)
 
 void window_draw()
 {
-    int frame_time = 0;
-
     if(!game_state.window_valid)
     {
         window_restart();
@@ -90,20 +88,9 @@ void window_draw()
 
     if(game_state.state == MENU)
         menu_render();
-    else if(game_state.victory) {
-        if(SDL_GetTicks() > game_state.victory + 1000)
-        {
-            game_state.victory = 0;
-			set_level(game_state.level+1);
-        }
-    }
-    else if(!game_state.paused)
-    {
-        scene_update();
-        render_draw();
-    } else {
-        SDL_Delay(100);
-    }
+	else
+		render_draw();
+
     SDL_GL_SwapBuffers();
 }
 

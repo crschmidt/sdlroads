@@ -1,20 +1,19 @@
 bin_PROGRAMS = sdlroads
 
 sdlroads_SOURCES = \
-input.c input.h\
-main.c core.h defs.h consts.h\
-render.c render.h\
-window.c window.h\
+main.c sdlroads.h defs.h consts.h\
+render.c\
+window.c\
 mathlib.c mathlib.h\
-camera.c camera.h\
-scene.c scene.h\
-images.c images.h\
-menu.c menu.h\
-ship.c ship.h\
-track.c track.h\
-args.c args.h\
-util.c util.h\
-settings.c settings.h\
-model.c model.h\
-sound.c sound.h\
-text.c text.h
+camera.c\
+scene.c\
+images.c\
+menu.c\
+ship.c\
+track.c\
+args.c\
+util.c\
+settings.c\
+model.c\
+sound.c\
+text.c

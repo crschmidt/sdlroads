@@ -26,6 +26,8 @@
 static SDL_TimerID tick_timer_id;
 static SDL_Event tick_event;
 
+Uint8 *keydown;
+
 Uint32 timer_tick(Uint32 interval, void *param)
 {
 	sdl_error_check(SDL_PushEvent(&tick_event) == 0);
@@ -59,27 +61,22 @@ int main(int argc, char** argv)
 	tick_event.type = SDL_USEREVENT;
 	sdl_error_check(tick_timer_id = SDL_AddTimer(1000/WINDOW_FPS, timer_tick, NULL));
 
+	keydown = SDL_GetKeyState(NULL);
 
     while(SDL_WaitEvent(&event))
     {
         switch(event.type)
         {
-            case SDL_KEYUP:
-                if(game_state.state != MENU)
-                    input_keyup(&event.key.keysym);
-
-                break;
-            case SDL_KEYDOWN:
-                if(game_state.state == MENU)
-                    menu_input(&event.key.keysym);
-                else
-                    input_keydown(&event.key.keysym);
-
-                break;
+			case SDL_KEYDOWN:
+				// menu input is only interested in keydown events
+				if(game_state.state == MENU)
+					menu_input(&event.key.keysym);
+				break;
             case SDL_QUIT:
                 quit(0);
                 break;
 			case SDL_USEREVENT:
+				scene_update();
 				window_draw();
 				break;
             default:
