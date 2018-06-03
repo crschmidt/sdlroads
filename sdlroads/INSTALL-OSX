@@ -1,7 +1,6 @@
-The CVS version of SDLRoads uses Unix packages of the SDL Libraries to compile.
-As such, if you would like to compile the CVS version of SDLRoads, the easiest
-way to do so is to use Fink (or possibly Darwinports) to install the following
-libraries:
+The Git version of SDLRoads uses Unix packages of the SDL Libraries to compile.
+As such, if you would like to compile the source version of SDLRoads, the easiest
+way to do so is to use macports to install the following libraries:
 
 SDL
 SDL_mixer
@@ -10,12 +9,12 @@ SDL_ttf
 
 This can be accomplished via the following:
 
-  sudo apt-get install sdl sdl-mixer sdl-image sdl-ttf \
-                       sdl-mixer-shlibs sdl-image-shlibs sdl-ttf-shlibs
+  sudo port install libsdl libsdl_mixer libsdl_image libsdl_ttf \
+            autoconf automake
 
-Once you have done this, you can download the SDLRoads code from CVS:
-export CVSROOT=":pserver:anonymous@cvs.sourceforge.net:/cvsroot/sdlroads"
-cvs co sdlroads
+Once you have done this, you can download the SDLRoads code from Git:
+
+git clone https://github.com/crschmidt/sdlroads.git
 
 This will create an "sdlroads" directory.
 
@@ -39,7 +38,7 @@ aclocal
 autoconf
 autoheader
 automake
-export LIBS="`sdl-config --libs`"
+export LIBS="`sdl-config --libs` -framework OpenGL"
 ./configure
 make
 
